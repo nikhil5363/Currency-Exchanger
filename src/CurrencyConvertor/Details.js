@@ -35,21 +35,21 @@ const Details = () => {
     }
     else {
 
-      console.log("More Detais Use Effect")
+      // console.log("More Detais Use Effect")
       const getCurrencyto = async () => {
-        console.log("the date is ", fromdate)
+        // console.log("the date is ", fromdate)
         const response = await axios.get(`https://api.exchangerate.host/timeseries?start_date=2022-05-18&end_date=${fromdate}`);
-        console.log(" The response of ==>", response);
+        // console.log(" The response of ==>", response);
         const rangedata = response.data.rates
-        console.log("the value of rangedata", rangedata)
+        // console.log("the value of rangedata", rangedata)
         let pdataa = [];
         for (let i in rangedata) {
-          console.log(i, rangedata[i][convertTo])
+          // console.log(i, rangedata[i][convertTo])
           currencydata.exchval = i
           pdataa.push({ dat: i, val: te * 10, price: rangedata[i][convertTo] })
           te++
         }
-        console.log("the padata", pdata)
+        // console.log("the padata", pdata)
         if (result !== null) {
           setState({
             ...initialState,
@@ -57,7 +57,7 @@ const Details = () => {
           })
         }
 
-        console.log(result)
+        // console.log(result)
       };
       getCurrencyto();
     }
@@ -94,7 +94,7 @@ const Details = () => {
     }
     else {
       const response = await axios.get(`https://api.exchangerate.host/latest?base=${base}`);
-      console.log("response==>", response);
+      // console.log("response==>", response);
       const date = response.data.date;
       const result = (response.data.rates[convertTo] * amount).toFixed(3)
       const excratee = response.data.rates[convertTo]
@@ -130,11 +130,11 @@ const Details = () => {
       <div className="ex3">
         <div className="container-fuild">
           <div className="card text-left">
-            <div class="row">
-              <div class="col-xs-6 col-md-8">
+            <div className="row">
+              <div className="col-xs-6 col-md-8">
                 <div className="card-header"> <h1>Currency Exchanger Details</h1></div>
               </div>
-              <div class="col-xs-6 col-md-4 ">
+              <div className="col-xs-6 col-md-4 ">
                 <Link className="bth" to="/"> Back To Home </Link>
               </div>
             </div>
@@ -145,12 +145,12 @@ const Details = () => {
       <div className="ex3">
         <div className="container-fuild">
 
-          <div class="row">
+          <div className="row">
 
-            <div class="col-xs-6 col-md-4">
+            <div className="col-xs-6 col-md-4">
               <label align="left">Amount : <input type="number" value={amount} onChange={enterAmount} /></label>
             </div>
-            <div class="col-xs-6 col-md-3">
+            <div className="col-xs-6 col-md-3">
 
               <label align="left">Currency From :<select name="base" value={base} onChange={handleCurrencyFrom}>
                 {currencies.map((item, index) => (
@@ -161,10 +161,10 @@ const Details = () => {
               </select></label>
             </div>
 
-            <div class="col-xs-6 col-md-1">
+            <div className="col-xs-6 col-md-1">
               <HiSwitchHorizontal size="30px" onClick={handleSwap} />
             </div>
-            <div class="col-xs-6 col-md-3">
+            <div className="col-xs-6 col-md-3">
               <label align="left">Currency To : <select name="convertTo" value={convertTo} onChange={handleCurrencyTo}>
                 {currencies.map((item, index) => (
                   <option key={index} value={item}>
@@ -176,20 +176,20 @@ const Details = () => {
           </div>
         </div>
         <br />
-        <div class="row">
-          <div class="col-xs-6 col-md-4">
+        <div className="row">
+          <div className="col-xs-6 col-md-4">
           </div>
-          <div class="col-xs-6 col-md-6">
+          <div className="col-xs-6 col-md-6">
             <button type="button" className="button button3" onClick={convertTheExhangeRate}>Convert</button>
           </div>
         </div>
         <br />
-        <div class="row">
-          <div class="col-xs-6 col-md-4">
+        <div className="row">
+          <div className="col-xs-6 col-md-4">
             <label> Calculated Value : </label>
             <input disabled={true} value={amount === "" ? 0 : result === null ? "" : result} />
           </div>
-          <div class="col-xs-6 col-md-8">
+          <div className="col-xs-6 col-md-8">
             <label> Exchange Rate Value  : </label>
             <input disabled={true} value={amount === "" ? 0 : result === null ? "" : excrate} />
           </div>
@@ -199,7 +199,7 @@ const Details = () => {
       <hr />
       <div className="ex3">
         <h1 className="chart-heading">Area Chart</h1>
-        {console.log("The Pdata by Puspendra", pdata)}
+        
         <ResponsiveContainer width="100%" aspect={3}>
           <AreaChart
             width={500}

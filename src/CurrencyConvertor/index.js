@@ -54,7 +54,7 @@ const Convertor = () =>{
     }
     else{
       const response = await axios.get(`https://api.exchangerate.host/latest?base=${base}`);
-      console.log("response==>", response);
+      // console.log("response==>", response);
       const date = response.data.date;
       const result = (response.data.rates[convertTo]*amount).toFixed(3)
       const excratee = response.data.rates[convertTo]
@@ -93,11 +93,11 @@ const Convertor = () =>{
       <div className="card-header"> <h1>Currency Exchanger</h1></div>      
       </div>
       <br/>
-      <div class="row">
-      <div class="col-xs-6 col-md-4">
+      <div className="row">
+      <div className="col-xs-6 col-md-4">
           <label align="left">Amount : <input type="number" value={amount} onChange={enterAmount}/></label>
       </div>
-      <div class="col-xs-6 col-md-3">
+      <div className="col-xs-6 col-md-3">
         
         <label align="left">Currency From :<select name="base" value={base} onChange={handleCurrencyFrom}>
       {currencies.map((item,index) => (
@@ -107,10 +107,10 @@ const Convertor = () =>{
           ))}
       </select></label>       
         </div>
-    <div class="col-xs-6 col-md-1">
+    <div className="col-xs-6 col-md-1">
     <HiSwitchHorizontal size="30px"  onClick={handleSwap}/>
     </div>
-    <div class="col-xs-6 col-md-3">
+    <div className="col-xs-6 col-md-3">
     <label align="left">Currency To : <select name="convertTo" value={convertTo} onChange={handleCurrencyTo}>
       {currencies.map((item,index) => (
             <option key={index} value={item}>
@@ -123,25 +123,25 @@ const Convertor = () =>{
     </div>
    <br/>
 
-   <div class="row">
-        <div class="col-xs-6 col-md-4">
+   <div className="row">
+        <div className="col-xs-6 col-md-4">
          </div>
-        <div class="col-xs-6 col-md-6">
+        <div className="col-xs-6 col-md-6">
         <button type="button" className="button button3"  onClick = {convertTheExhangeRate}>Convert</button>
          </div>
    </div>
    <br/>
   
-        <div class="row">
-          <div class="col-xs-6 col-md-4">
+        <div className="row">
+          <div className="col-xs-6 col-md-4">
             <label> Calculated Value : </label>
             <input disabled={true} value={amount ==="" ? 0 : result ===null ? "": result}/>
           </div>
-          <div class="col-xs-6 col-md-4">
+          <div className="col-xs-6 col-md-4">
             <label> Exchange Rate : </label>
           <input disabled={true} value={amount ==="" ? 0 : result ===null ? "": excrate}/>
           </div>
-          <div class="col-xs-6 col-md-4">
+          <div className="col-xs-6 col-md-4">
             <Link className="Link" to="/details">More Details</Link>
           </div>
         </div>      
