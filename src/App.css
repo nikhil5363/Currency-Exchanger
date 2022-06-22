@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+.switch{   
+    cursor: pointer;
+  }
+.middle,.right{
+  width: 120px;
+}
+
+label {  
+  display: inline-flex;
+}
+
+.ex2{
+  background-color: lightgrey;   
+  width: 1200px;
+  border: 15px solid black;
+  padding: 50px;
+  margin: 20px;
+}
+
+.ex3{
+  background-color: lightgrey;   
+  width: 1200px;
+  border: 7px solid black;
+  padding: 20px;
+  margin: 10px;
+}
+
+.select {
+  width: 100%;
+  min-width: 15ch;
+  max-width: 30ch;
+  border: 1px solid var(--select-border);
+  border-radius: 0.25em;
+  padding: 0.25em 0.5em;
+  font-size: 1.25rem;
+  cursor: pointer;
+  line-height: 1.1;
+  background-color: #fff;
+  background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+}
+
+.button {
+  background-color: orange; /* Green */
+  border: none;
+  color: black;
+  padding: 12px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px
+}
+
+.button3 {width: 100%;}
+
+.Link{
+  background-color: orange; /* Green */
+  color: black;
+  border-radius: 8px;
+  padding: 10px 32px;
+  margin: 1px 1px;
+}
+
+.bth{
+
+  background-color: orange; /* Green */
+  border: none;
+  color: black;
+  padding: 12px 42px ;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 14px 22px;
+  cursor: pointer;
+  border-radius: 8px
+  
+}
